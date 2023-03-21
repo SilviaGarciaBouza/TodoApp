@@ -14,19 +14,19 @@ class ViewHolderCategory (view: View): RecyclerView.ViewHolder(view){
 
     //render recive un taskcategory
     fun render(taskCategory: TaskCategory) {
-        tvCategoryName.text = "Personal"
+     tvCategoryName.text = "Personal"
 
         //color del divisor:
         when(taskCategory){
             TaskCategory.Bussiness -> {
 
                 tvCategoryName.text = "Trabajo"
-               vDivider.setBackgroundColor(ContextCompat.getColor(vDivider.context,R.color.white))
+               vDivider.setBackgroundColor(ContextCompat.getColor(vDivider.context,R.color.red))
             }
             TaskCategory.Others -> {
 
                 tvCategoryName.text = "Otros"
-                vDivider.setBackgroundColor(ContextCompat.getColor(vDivider.context,R.color.black))
+                vDivider.setBackgroundColor(ContextCompat.getColor(vDivider.context, R.color.white))
 
             }
             TaskCategory.Personal -> {

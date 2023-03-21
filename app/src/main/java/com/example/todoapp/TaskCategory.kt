@@ -5,3 +5,5 @@ sealed class TaskCategory {
     object Bussiness : TaskCategory()
     object Others : TaskCategory()
 }
+
+data class Tasks (val taskCategory: TaskCategory, val name: String, var check: Boolean= false, )
