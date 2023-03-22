@@ -3,4 +3,9 @@
     <string name="hola">Hola</string>
     <string name="categor_as">Categorías</string>
     <string name="tareas">Tareas</string>
+    <string name="a_ade_nueva_task">Añade nueva task</string>
+    <string name="personal">Personal</string>
+    <string name="trabajo">Trabajo</string>
+    <string name="otros">Otros</string>
+    <string name="add_task">Añadir tarea</string>
 </resources>

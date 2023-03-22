@@ -11,10 +11,10 @@ class ViewHolderCategory (view: View): RecyclerView.ViewHolder(view){
     //iniciamos los elementos del xml del item
     private val tvCategoryName: TextView = view.findViewById(R.id.tv_item_category)
     private val vDivider: View = view.findViewById(R.id.v_item_category)
-
     //render recive un taskcategory
     fun render(taskCategory: TaskCategory) {
-     tvCategoryName.text = "Personal"
+        tvCategoryName.text = "Personal"
+
 
         //color del divisor:
         when(taskCategory){

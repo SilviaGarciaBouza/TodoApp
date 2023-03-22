@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/purple_200"
+    android:layout_gravity="center"
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="16dp">
+
+    <EditText
+        android:id="@+id/et_add_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/white"
+        android:hint="@string/a_ade_nueva_task"
+        android:textColor="@color/white" />
+    <RadioGroup
+        android:id="@+id/rg_add_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_personal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/personal"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:buttonTint="@color/purple_500"/>
+        <RadioButton
+            android:id="@+id/rb_bussiness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="@string/trabajo"
+            android:buttonTint="@color/red"/>
+        <RadioButton
+            android:id="@+id/rb_others"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:text="@string/otros"
+            android:buttonTint="@color/white"/>
+    </RadioGroup>
+    <Button
+        android:id="@+id/btn_add_task"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/yellow"
+        android:text="@string/add_task"
+        android:textColor="@color/black"
+        android:textSize="18dp"/>
+
+</LinearLayout>
