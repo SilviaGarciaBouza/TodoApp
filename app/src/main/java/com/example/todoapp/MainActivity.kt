@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     private fun dialogAddTask() {
         val dialog=Dialog(this)
         dialog.setContentView(R.layout.dialog_add_task)
-        dialog.show()
+
 
         val editTextAddTask: EditText = dialog.findViewById(R.id.et_add_task)
         val radioGourAddTask: RadioGroup = dialog.findViewById(R.id.rg_add_task)
@@ -76,10 +76,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 tasks.add(Tasks(currentCategory, editTextAddTask.text.toString()))
-                //  updateTasks()
+                updateTasks()
                 dialog.hide()
             }
         }
+        dialog.show()
 
 
     }
@@ -99,8 +100,19 @@ class MainActivity : AppCompatActivity() {
         rVCategory.adapter= adapterCategory
 
         //segundorv:
-        adapterTasks = AdapterTasks(tasks)
+        //seleccionar y tachar la tarea:2 pasar el onselected
+        adapterTasks = AdapterTasks(tasks) {onSelected(it)}
         rvTasks.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         rvTasks.adapter = adapterTasks
+    }
+   //para notificar cambios en el adapter
+    private fun updateTasks(){
+        adapterTasks.notifyDataSetChanged()
+    }
+    //seleccionar y tachar la tarea:1-seleccionao o deseleccionar y actualizar en la lista
+    private fun onSelected(position:Int){
+        tasks[position].check = !tasks[position].check
+
+        updateTasks()
     }
 }
