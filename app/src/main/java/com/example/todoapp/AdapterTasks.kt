@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 ////seleccionar y tachar la tarea:3Además de la list, le pasas el OnTaskSelected
-class AdapterTasks(private val tasks: List<Tasks>, private val onTasksSelected:(Int) -> Unit): RecyclerView.Adapter<ViewHolderTasks> (){
+class AdapterTasks(var tasks: List<Tasks>, private val onTasksSelected:(Int) -> Unit): RecyclerView.Adapter<ViewHolderTasks> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderTasks {
         val view = LayoutInflater.from(parent.context).inflate((R.layout.item_task_layout), parent, false)

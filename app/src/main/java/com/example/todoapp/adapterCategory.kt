@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 //Conecta la información con el recyclerView
 //Recive la lista que se va a pintar
 //Extiende de RecyclerView.Adapter y se le pasa el ViewHolder
-class AdapterCategory(private val categories:List<TaskCategory>): RecyclerView.Adapter<ViewHolderCategory>() {
+//Deseleccionar categoría:1- Le pasas el onItemSelected
+class AdapterCategory(private val categories:List<TaskCategory>, private val onItemSelected:(Int) -> Unit): RecyclerView.Adapter<ViewHolderCategory>() {
 
     //Crea la vista para que onBindViewHolder lo pinte
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCategory {
@@ -22,7 +23,9 @@ class AdapterCategory(private val categories:List<TaskCategory>): RecyclerView.A
         //holder es como llamar a cada uno de los item
         //la funcion render en el viewHolder, hay q pasarle un item(categoryposition, le vas pasando cada posicion con cada item
        //como tengo la posicion de cada item sé qué item tengo q pasar. Ej: cuando esté en posicion 1 te envío el item de la posición 1
-        holder.render(categories[position])
+
+        //Deseleccionar categoría:2- Le pasas el onItemSelected
+        holder.render(categories[position],onItemSelected)
     }
 
     //Indica el nº de celdas que pinta. Si le pones return 5 solo pintatemos 5

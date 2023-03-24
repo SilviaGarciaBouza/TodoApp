@@ -1,6 +1,7 @@
 package com.example.todoapp
 
-sealed class TaskCategory {
+//Deseleccionar categoría:6- propiedad is selected y empieza en true pq empiezan seleccionados
+sealed class TaskCategory(var isSelected:Boolean = true) {
     object Personal : TaskCategory()
     object Bussiness : TaskCategory()
     object Others : TaskCategory()

@@ -94,7 +94,8 @@ class MainActivity : AppCompatActivity() {
     private fun initUI() {
         //Primer rv
         //Inicias el adaptercategory y le envías una lista de categorías
-        adapterCategory = AdapterCategory(categories)
+        //Deseleccionar categoría:7- Pasa updateCategories
+        adapterCategory = AdapterCategory(categories){updateCategories(it)}
         //layoutManager para saber si la lista es horizontal o vertical
         rVCategory.layoutManager= LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         rVCategory.adapter= adapterCategory
@@ -105,10 +106,26 @@ class MainActivity : AppCompatActivity() {
         rvTasks.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         rvTasks.adapter = adapterTasks
     }
-   //para notificar cambios en el adapter
+    //Deseleccionar categoría:8- actualizas category
+    private fun updateCategories(position: Int) {
+        categories[position].isSelected = !categories[position].isSelected
+        adapterCategory.notifyItemChanged(position)
+        updateTasks()
+    }
+
+    //para notificar cambios en el adapter
+    //Deseleccionar categoría:9- selecciona solo los q son de esa categoría
+
     private fun updateTasks(){
+        val selectCategory: List<TaskCategory> = categories.filter { it.isSelected }
+        val newTasks = tasks.filter { selectCategory.contains(it.taskCategory) }
+        adapterTasks.tasks = newTasks
+
         adapterTasks.notifyDataSetChanged()
     }
+
+
+
     //seleccionar y tachar la tarea:1-seleccionao o deseleccionar y actualizar en la lista
     private fun onSelected(position:Int){
         tasks[position].check = !tasks[position].check
