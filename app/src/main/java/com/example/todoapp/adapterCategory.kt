@@ -24,7 +24,7 @@ class AdapterCategory(private val categories:List<TaskCategory>, private val onI
         //la funcion render en el viewHolder, hay q pasarle un item(categoryposition, le vas pasando cada posicion con cada item
        //como tengo la posicion de cada item sé qué item tengo q pasar. Ej: cuando esté en posicion 1 te envío el item de la posición 1
 
-        //Deseleccionar categoría:2- Le pasas el onItemSelected
+        //Deseleccionar categoría:2- Le pasas el onItemSelectedval onItemSelected:(in
         holder.render(categories[position],onItemSelected)
     }
 
